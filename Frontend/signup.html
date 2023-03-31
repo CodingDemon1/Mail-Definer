@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/db912bbc14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/signup.css">
+    <link rel="stylesheet" href="./style/index.css">
+</head>
+
+<body>
+    <nav>
+        <img src="./imgs/mailDefiner.png" alt="" class="logo">
+        <div class="navmenu">
+            <!-- <div class="btn"> -->
+            <a href="login.html" class="sign" id="login">Log in</a>
+            <!-- <a href="login.html" class="sign" id="signup">Sign Up</a> -->
+            <!-- </div> -->
+
+
+    </nav>
+    </div>
+
+    <div class="main">
+        <div class="bottom">
+            <div class="inline">
+                <h3>Create Free Account</h3>
+                <!-- <div class="buttons"> -->
+                <a class="userBtn" href=""><i class="fa-brands fa-google"></i> Use google account</a>
+                <a class="userBtn" href=""><i class="fa-brands fa-github"></i> Use Github account</a>
+
+                <a class="userBtn" href=""><i class="fa-brands fa-windows"></i> Use Office 365 account</a>
+                <!-- </div> -->
+                <h6>or</h6>
+
+                <a id="signupWithEmailBtn">Sign Up With Your Email</a>
+                <form action="" id="signupWithEmail">
+                    <input type="text" placeholder="Your Email" required>
+                    <input type="password" placeholder="Your Password" required>
+                    <input type="password" placeholder="Confirn Passworf">
+                    <input type="submit">
+                </form>
+                <p>By creating a Mailtrap account, you agree to our <br><a href="">Terms of Service</a> and <a href="">
+                        Privacy Policy.</a><br> We'll occasionally send you account related emails</p>
+            </div>
+            <div class="inline">
+                <img src="https://assets.mailtrap.io/packs/assets/landing/signup-29d04f096f43afe622ed.svg" alt="">
+                <div><img src="https://assets.mailtrap.io/packs/assets/landing/no-cc-f64815040928cb2cd45e.svg" alt="">
+                    No credit card needed</div>
+                <div><img src="https://assets.mailtrap.io/packs/assets/landing/no-contract-6c7fcc24afc64e708f1d.svg"
+                        alt=""> No contract needed</div>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const signupBtn = document.getElementById("signupWithEmailBtn")
+    const signupForm = document.getElementById("signupWithEmail")
+
+    signupBtn.addEventListener("click", () => {
+        signupForm.style.display = "flex"
+        signupBtn.style.display = "none"
+    })
+</script>
+
+</html>
