@@ -31,13 +31,15 @@
                 <!-- <div class="buttons"> -->
                 <a class="userBtn" href=""><i class="fa-brands fa-google"></i> Use google account</a>
                 <a class="userBtn" href=""><i class="fa-brands fa-github"></i> Use Github account</a>
-
                 <a class="userBtn" href=""><i class="fa-brands fa-windows"></i> Use Office 365 account</a>
                 <!-- </div> -->
                 <h6>or</h6>
                 <p><b>Log in with Email</b></p>
-                <input type="text" placeholder="Your Email" required><br>
-                <input type="password" placeholder="Your Password" required><br>
+                <form action="" id="loginForm">
+                    <input type="text" placeholder="Your Email" required>
+                    <input type="password" placeholder="Your Password" required>
+                    <input id="loginBtn" type="submit" value="Login">
+                </form>
 
                 <a href="signup.html">Sign Up With Your Email</a>
                 <p id="lasttex">Haven't received the confirmation email yet? <br> <a href="">Resend the email</a></p>
@@ -90,5 +92,6 @@
         </div>
     </footer>
 </body>
+<script src="./src/login.js"></script>
 
 </html>

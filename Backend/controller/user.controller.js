@@ -1,13 +1,12 @@
 const { UserModel } = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
 const userRegistration = async (req, res) => {
 	try {
 		// console.log(req);
-		const { email, name, pass, location, age } = req.body;
+		const { email, name, pass, age } = req.body;
 		bcrypt.hash(pass, 5, async (err, hash) => {
-			const newUser = new UserModel({ email, name, pass: hash, location, age });
+			const newUser = UserModel({ email, name, pass: hash, age });
 			await newUser.save();
 			res.status(200).send({ msg: "Registration Successful" });
 		});
@@ -22,8 +21,9 @@ const userLogin = async (req, res) => {
 		// console.log(req.body);
 		const { email, pass } = req.body;
 
+		// console.log(req.body);
 		const user = await UserModel.findOne({ email });
-		// console.log(pass);
+
 		if (user) {
 			// console.log(user);
 			bcrypt.compare(pass, user.pass, (err, result) => {
@@ -41,6 +41,17 @@ const userLogin = async (req, res) => {
 		}
 	} catch (error) {
 		res.status(400).send({ msg: error.message });
+	}
+};
+
+userDetails = async (req, res) => {
+	try {
+		let id = req.body.userId;
+		let data = await UserModel.findOne({ _id: id });
+		// console.log(data);
+		res.status(200).json(data);
+	} catch (error) {
+		res.status(501).send(error.message);
 	}
 };
 

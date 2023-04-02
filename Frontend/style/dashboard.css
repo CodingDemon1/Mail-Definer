@@ -1,29 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap');
 
 * {
-    font-family: 'Poppins',
-        sans-serif;
-        margin: 0;
-        padding: 0;
+    font-family: 'Poppins',sans-serif;
+    margin: 0;
+    padding: 0;
 }
-
+body{
+    overflow-x: hidden;
+}
 .container{
     display: flex;
+    width: 100%;
 }
 .sidebar{
     /* padding-left: 30px; */
     width: 18%;
-    height: 100vh;
-    border: 1px solid red;
+    /* height: 100vh; */
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     background-color: #1a2e44;
 }
 .main{
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
+    width: 82%;
+    padding: 5px 20px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
 }
 
 .sidebar a{
+    cursor: pointer;
+    border: none;
+    background-color: #1a2e44;
     padding-left: 30px;
     text-decoration: none;
     color: white;
@@ -37,7 +45,277 @@
     margin-right: 30px;
 }
 .options{
-    margin-top: 150px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
+}
+.top{
+    box-sizing: border-box;
+    /* border: 1px solid grey; */
+    width: 100%;
+    height: 50px;
+    padding: 10px 30px 10px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+#name{
+    font-size: large;
+    font-weight: bold;
+    color: #1a2e44;
+    cursor: pointer;
+}
+#name:hover{
+    color: #365e89;
+}
+/* .top>hr{
+    width: 100%;
+} */
+
+.left,.right{
+    height: 700px;
+    width: 50%;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.left img,.right img{
+    width: 100%;
+    border-radius: inherit;
+}
+.up{
+    margin: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.up h2{
+    font-size: 35px;
+}
+.up p{
+    color: grey;
+}
+.up button{
+    border-radius: 8px;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    background: #4c83ee;
+    cursor: pointer;
+}
+.up button:hover{
+    background: #5d8ff4;
+}
+
+#comingSoon{
+    /* width: ; */
+    height: 92vh;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#comingSoon img{
+    width: 50%;
+}
+.home {
+    display: flex;
+    box-sizing: border-box;
+}
+#sendMail{
+    height: 92vh;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#sendMailForm{
+    padding: 50px 50px 50px 50px;
+    border-radius: 20px;
+    height: 400px;
+    width: 50%;
+    border: 1px solid rgb(216, 216, 216);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* align-items: center; */
+}
+#sendMailForm>input, textarea{
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #1a2e44;
+}
+#sendMailForm>input[type=submit]{
+    background-color: #1a2e44;
+    align-self: center;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+}
+#sendMailForm>input[type=submit]:hover{
+    background-color: #365e89;
+}
+#inbox,#spam,#sendbox{
+    height: 92vh;
+    display: none;
+    flex-direction: column;
+}
+#inboxMsg,#spamMsg,#sendboxMsg{
+    border-collapse: collapse;
+    /* border:qpx solid black; */
+}
+#inboxMsg tr,#spamMsg tr,#sendboxMsg tr{
+    /* border: 1px solid rgb(106, 102, 102); */
+    height: fit-content;
+    /* height: 92vh; */
+    cursor:default;
+    width: 90%;
+    background-color: rgb(200, 208, 215);
+}
+#inboxMsg tr:nth-child(even),#spamMsg tr:nth-child(even),#sendboxMsg tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+#inboxMsg tr:nth-child(odd), #spamMsg tr:nth-child(odd),#sendboxMsg tr:nth-child(odd){
+    /* background-color: #f2f2f2; */
+    background-color: #ebeaea;
+}
+#inboxMsg tr:hover, #spamMsg tr:hover, #sendboxMsg tr:hover{
+    background-color: #ddd;
+}
+#inboxMsg td,#spamMsg td,#sendboxMsg td,
+#inboxMsg th,#spamMsg th, #sendboxMsg th {
+    /* border: 1px solid #ddd; */
+    padding: 8px;
+}
+#inboxMsg td:last-child,#spamMsg td:last-child,#sendboxMsg td:last-child{
+    width: 150px;
+}
+#inboxMsg td:first-child,#spamMsg td:first-child, #sendboxMsg td:first-child{
+    width: 200px;
+}
+#inboxMsg button{
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 5px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #e88a8a;
+}
+#inboxMsg button:hover{
+    background-color: #fb5e5e;
+}
+#inboxMsg th, #spamMsg th , #sendboxMsg th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #1a2e44;
+    color: white;
+}
+
+.profile{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.profile p{
+    margin-left: 10px;
+}
+#logout{
+    /* width: 100px; */
+    display: none;
+    text-decoration: none;
+    margin-left: 20px;
+    padding: 2px 10px;
+    border-radius: 8px ;
+    height: 30px;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    background-color: #f33030;
+}
+#logout:hover{
+    background-color: #f94c4c;
+}
+.modal__wrapper{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease-in-out;
+}
+.modal__container{
+    background: #fff;
+    display: flex;
+    box-sizing: content-box;
+    justify-content: space-evenly;
+    align-items: baseline;
+        flex-direction: column;
+        width: fit-content;
+        height: fit-content;
+        max-width: 70%;
+        padding: 30px;
+        border-radius: 4px;
+        position: relative;
+        transform: translateY(-100%);
+        transition: all .3s ease-in-out;
+}
+.modal__container button.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 32px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.modal__container button.close:hover {
+    color: #6B46C1;
+}
+
+.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal__wrapper.active .modal__container {
+    transform: translateY(0px);
+}
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#closeBtn{
+
+    background-color: #f33030;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+#closeBtn:hover{
+    background-color: #ff0000;
+}
+#modal__container p{
+    margin: 5px;
+}
+#msgMail{
+    font-weight: bold;
 }

@@ -35,18 +35,6 @@
 
 }
 
-.sign {
-    width: 80px;
-    height: 35px;
-    margin: 2px;
-    margin-top: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-block;
-    text-decoration: none;
-
-}
-
 .bottom {
     display: flex;
 }
@@ -174,7 +162,7 @@ h3 {
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    height: 300px;
+    height:400px;
 }
 #signupWithEmail input{
     text-align: center;
