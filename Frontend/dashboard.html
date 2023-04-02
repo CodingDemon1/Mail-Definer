@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mail Definer</title>
     <link rel="stylesheet" href="./style/dashboard.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <script src="https://kit.fontawesome.com/7fd035bd33.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/index.css">
 
 </head>
 
@@ -17,18 +18,502 @@
         <div class="sidebar">
             <img src="./imgs/mailDefiner.png" alt="">
             <div class="options">
-                <a href="#"><i class="fa-solid fa-house"></i> Home</a>
-                <a href="#"><i class="fa-solid fa-envelope-circle-check"></i> Email Testing</i></a>
-                <a href="#"><i class="fa-solid fa-paper-plane"></i> Email Sending</a>
-                <a href="#"><i class="fa-solid fa-credit-card"></i> Billing</a>
-                <a href="#"><i class="fa-solid fa-gears"></i> Settings</a>
+                <a id="homeBtn"><i class="fa-solid fa-house"></i> Home</a>
+                <a id="createMailBtn"><i class="fa-solid fa-plus"></i> Send New Mail</a>
+                <a id="inboxBtn"><i class="fa-solid fa-inbox"></i> Inbox</a>
+                <a id="sendBoxBtn"><i class="fa-solid fa-paper-plane"></i> Sent Box</a>
+                <a id="spamBoxBtn"><i class="fa-solid fa-circle-exclamation"></i> Spam</a>
+                <a id="emailTestBtn"><i class="fa-solid fa-envelope-circle-check"></i> Email Testing</a>
+                <a id="emailSendBtn"><i class="fa-solid fa-envelopes-bulk"></i> Email Sending</a>
+                <a id="billingBoxBtn"><i class="fa-solid fa-credit-card"></i> Billing</a>
+                <a id="settingBtn"><i class="fa-solid fa-gears"></i> Settings</a>
             </div>
-
         </div>
         <div class="main">
+            <div class="top">
+                <i class="fa-solid fa-bars-staggered"></i>
+                <span>Home</span>
+                <div class="profile">
+                    <p>Welcome </p>
+                    <p id="name"></p>
+                    <a href="./index.html" id="logout">Logout</a>
+                </div>
+            </div>
+            <hr>
+            <div class="home" id="home">
+                <div class="left">
+                    <img src="https://assets.mailtrap.io/packs/assets/media/sandbox-inactive-74f82ada44702b76a860.svg"
+                        alt="#">
+                    <div class="up">
+                        <div>
+                            <h2>Email Testing</h2>
+                            <p>Test Emails on Staging</p>
+                        </div>
+                        <button>Start Testing</button>
+                    </div>
+                    <hr>
+                    <p>Fake SMTP Server</p>
+                    <hr>
+                    <p>QA Automation</p>
+                    <hr>
+                    <p>Preview and validate HTML/CSS</p>
+                    <hr>
+                    <p>Inbox email address</p>
+                    <hr>
+                    <img src="https://assets.mailtrap.io/packs/assets/app/how-sandbox-works-023b1416938aac173a7c.svg"
+                        alt="#">
 
+                </div>
+                <div class="right">
+                    <img src="https://assets.mailtrap.io/packs/assets/media/email-api-inactive-2b963546ca2b49da77d3.svg"
+                        alt="#">
+                    <div class="up">
+                        <div>
+                            <h2>Email Sending</h2>
+                            <p>Send Emails on Production</p>
+                        </div>
+                        <button>Start Sending</button>
+                    </div>
+                    <hr>
+                    <p>Real SMTP Server</p>
+                    <hr>
+                    <p>SPF, DKIM, DMARC, Dedicated IP</p>
+                    <hr>
+                    <p>Deliverability Alerts</p>
+                    <hr>
+                    <p>Email content and logs</p>
+                    <hr>
+                    <img src="https://assets.mailtrap.io/packs/assets/app/how-email-api-works-fe2a9b4cb9870dfe4b68.svg"
+                        alt="#">
+
+                </div>
+            </div>
+            <div class="createMail" id="sendMail">
+                <h1>Compose Mail</h1>
+                <form action="" id="sendMailForm">
+                    <input type="email" placeholder="To:" required>
+                    <input type="text" placeholder="Subject:" required>
+                    <label for="msg">Message:</label>
+                    <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Your Message" required>
+                    </textarea>
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+            <div class="inbox" id="inbox">
+                <h1>Your InBox</h1>
+
+                <table class="inboxMsg" id="inboxMsg">
+                    <thead>
+                        <th>FROM</th>
+                        <th>SUBJECT</th>
+                        <th></th>
+                    </thead>
+                    <tbody id="allMsg" class="allMsg">
+                    </tbody>
+                </table>
+            </div>
+            <div class="sendbox" id="sendbox">
+                <h1>Your SendBox</h1>
+
+                <table class="sendboxMsg" id="sendboxMsg">
+                    <thead>
+                        <th>TO</th>
+                        <th>SUBJECT</th>
+                        <th>STATUS</th>
+                        <th>GOT SPAM</th>
+                    </thead>
+                    <tbody id="allSendboxMsg" class="allSendboxMsg">
+                    </tbody>
+                </table>
+            </div>
+            <div class="spam" id="spam">
+                <h1>Spams</h1>
+
+                <table class="spamMsg" id="spamMsg">
+                    <thead>
+                        <th>FROM</th>
+                        <th>SUBJECT</th>
+                        <!-- <th>MESSAGE</th> -->
+                    </thead>
+                    <tbody id="allSpam" class="allSpam">
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div id="comingSoon">
+                <h1>Work in Progress.</h1>
+                <img src="https://camo.githubusercontent.com/61491d59e71fec5c794945fed916a4a682b6c0404fc31f30b08a0d919c558404/68747470733a2f2f696d616765732e73717561726573706163652d63646e2e636f6d2f636f6e74656e742f76312f3537363966633430316236333162616231616464623261622f313534313538303631313632342d5445363451474b524a4738535741495553374e532f6b6531375a77644742546f6464493870446d34386b506f73776c7a6a53564d4d2d53784f703743563539425a772d7a505067646e346a557756634a45315a7657515578776b6d794578676c4e714770304976544a5a616d574c49327a76595748384b332d735f3479737a63703272795449304871544f6161556f68724938504936465879386339505774426c7141566c555335697a7064634958445a71445976707252715a32395077306f2f636f64696e672d667265616b2e676966"
+                    alt="#">
+                <h2>This Functionality is Coming Soon</h2>
+            </div>
         </div>
     </div>
+    <div class="modal__wrapper" id="modal__wrapper">
+        <div class="modal__container" id="modal__container">
+            <p>From :
+                <span id="fromMail"></span>
+            </p>
+            <p>
+                To :
+                <span id="toMail"></span>
+            </p>
+            <p>Subject :
+                <span id="subMail"></span>
+            </p>
+            <p id="msgMailSpan">Message :
+                <span id="msgMail"></span>
+            </p>
+            <button id="closeBtn">Close</button>
+        </div>
+
+    </div>
+    <footer style="margin-top: 0;padding-top: 30px;">
+        <div>
+            <h4>Maildefiner</h4>
+            <a href="#">Pricing</a>
+            <a href="#">Email API</a>
+            <a href="#">Fake SMTP for Testing</a>
+            <a href="#">HTML/CSS Checker</a>
+            <a href="#">QA Automation</a>
+            <a href="#">Email Testing API</a>
+            <a href="#">Changelog</a>
+            <a href="#">Status</a>
+            <a href="#">Terms of Services</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Navigational Information</a>
+            <a href="#">DPA</a>
+        </div>
+        <div>
+            <h4>Railsware Experience</h4>
+            <a href="#">Mailtrap Blog</a>
+            <a href="#">Coupler.io</a>
+            <a href="#">Smart Checklist for Jira</a>
+            <a href="#">Careers @ Railsware Hiring</a>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>email: support@maildefiner.io</p>
+            <div id="social">
+                <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png"
+                    alt="fb">
+                <img src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png"
+                    alt="twitter">
+                <img src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/linkedin_circle-512.png"
+                    alt="linkedin">
+            </div>
+        </div>
+    </footer>
 </body>
+<script src="./src/dashboard.js"></script>
+<script>
+    const homeBtn = document.getElementById("homeBtn");
+    const createMailBtn = document.getElementById("createMailBtn");
+    const inboxBtn = document.getElementById("inboxBtn");
+    const sendBoxBtn = document.getElementById("sendBoxBtn");
+    const spamBoxBtn = document.getElementById("spamBoxBtn");
+    const emailTestBtn = document.getElementById("emailTestBtn");
+    const emailSendBtn = document.getElementById("emailSendBtn");
+    const billingBoxBtn = document.getElementById("billingBoxBtn");
+    const settingBtn = document.getElementById("settingBtn");
+
+    const inbox = document.getElementById("inbox");
+    const home = document.getElementById("home");
+    const sendMail = document.getElementById("sendMail");
+    const comingSoon = document.getElementById("comingSoon");
+    const inboxMsg = document.getElementById("inboxMsg");
+    const allMsg = document.getElementById("allMsg")
+    const spam = document.getElementById("spam")
+    const sendbox = document.getElementById("sendbox")
+    const allSendboxMsg = document.getElementById("allSendboxMsg")
+    const allSpam = document.getElementById(("allSpam"))
+    // const trigger = document.querySelector("#trigger");
+    const modalWrapper = document.querySelector("#modal__wrapper");
+    const closeBtn = document.querySelector("#closeBtn");
+    const fromMail = document.getElementById("fromMail")
+    const subMail = document.getElementById("subMail")
+    const msgMail = document.getElementById("msgMail")
+    const toMail = document.getElementById("toMail")
+
+
+    homeBtn.addEventListener("click", () => {
+        home.style.display = "flex";
+        sendMail.style.display = "none";
+        inbox.style.display = "none";
+        comingSoon.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "none";
+
+
+    });
+
+    createMailBtn.addEventListener("click", () => {
+        home.style.display = "none";
+        sendMail.style.display = "flex";
+        comingSoon.style.display = "none";
+        inbox.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "none";
+
+    });
+    spamBoxBtn.addEventListener("click", () => {
+        // console.log("spamCliked")
+        inbox.style.display = "none";
+        home.style.display = "none";
+        sendMail.style.display = "none";
+        comingSoon.style.display = "none";
+        sendbox.style.display = "none";
+        spam.style.display = "flex"
+
+        fetch(`${baseUrl}/email/getSpams`, {
+            method: "GET",
+            headers: {
+                "content-type": "Application/JSON",
+                Auth: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+                displaySpams(result)
+            })
+            .catch((err) => alert(err.message));
+    })
+    inboxBtn.addEventListener("click", () => {
+        inbox.style.display = "flex";
+        home.style.display = "none";
+        sendMail.style.display = "none";
+        comingSoon.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "none";
+
+        fetch(`${baseUrl}/email/`, {
+            method: "GET",
+            headers: {
+                "content-type": "Application/JSON",
+                Auth: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((result) => displayMsgs(result))
+            .catch((err) => alert(err.message));
+    });
+    sendBoxBtn.addEventListener("click", () => {
+        inbox.style.display = "none";
+        home.style.display = "none";
+        sendMail.style.display = "none";
+        comingSoon.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "flex"
+
+        fetch(`${baseUrl}/email/sendbox`, {
+            method: "GET",
+            headers: {
+                "content-type": "Application/JSON",
+                Auth: localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((result) => displaySendBox(result))
+            .catch((err) => alert(err.message));
+    })
+    billingBoxBtn.addEventListener("click", () => {
+        home.style.display = "none";
+        sendMail.style.display = "none";
+        comingSoon.style.display = "flex";
+        inbox.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "none"
+
+
+    });
+    settingBtn.addEventListener("click", () => {
+        home.style.display = "none";
+        sendMail.style.display = "none";
+        comingSoon.style.display = "flex";
+        inbox.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "none"
+    });
+    emailTestBtn.addEventListener("click", () => {
+        home.style.display = "none";
+        sendMail.style.display = "none";
+        comingSoon.style.display = "flex";
+        inbox.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "none"
+    });
+    emailSendBtn.addEventListener("click", () => {
+        home.style.display = "none";
+        sendMail.style.display = "none";
+        comingSoon.style.display = "flex";
+        inbox.style.display = "none";
+        spam.style.display = "none";
+        sendbox.style.display = "none"
+
+
+    });
+
+    function displayMsgs(data) {
+        allMsg.innerHTML = null
+        data.forEach((ele, ind) => {
+            let tr = document.createElement("tr")
+            tr.className = "oneMail"
+
+            let from = document.createElement("td")
+            from.textContent = ele.from
+
+            let sub = document.createElement('td')
+            sub.textContent = ele.subject
+
+            let spam = document.createElement("td")
+            let spmBtn = document.createElement("button")
+
+            spmBtn.textContent = "Move to Spam"
+
+            spmBtn.addEventListener("click", () => {
+                spamTheMail(ele._id)
+            })
+
+            spam.append(spmBtn)
+            tr.addEventListener("click", () => {
+                seenTheMail(ele._id)
+                fromMail.textContent = ele.from
+                subMail.textContent = ele.subject
+                msgMail.textContent = ele.message
+                toMail.textContent = ele.to
+                openModal();
+            })
+
+            tr.append(from, sub, spam)
+            allMsg.append(tr)
+        });
+    }
+
+    function displaySendBox(data) {
+        allSendboxMsg.innerHTML = null
+        data.forEach((ele, ind) => {
+            let tr = document.createElement("tr")
+            tr.className = "oneMail"
+
+            let to = document.createElement("td")
+            to.textContent = ele.to
+
+            let sub = document.createElement('td')
+            sub.textContent = ele.subject
+
+            let status = document.createElement("td")
+
+            ele.opened ? (status.textContent = "Seen", status.style.color = "Blue") : (status.textContent = "Sent", status.style.color = "Green")
+
+            let isSpam = document.createElement("td")
+            ele.isSpam ? (isSpam.textContent = "Yes", isSpam.style.color = "Red") : (isSpam.textContent = "No", isSpam.style.color = "Grey")
+
+            tr.addEventListener("click", () => {
+                seenTheMail(ele._id)
+                fromMail.textContent = ele.from
+                subMail.textContent = ele.subject
+                msgMail.textContent = ele.message
+                toMail.textContent = ele.to
+
+                openModal();
+            })
+
+            tr.append(to, sub, status, isSpam)
+            allSendboxMsg.append(tr)
+        });
+    }
+
+    function displaySpams(data) {
+        allSpam.innerHTML = null
+        data.forEach((ele, ind) => {
+            let tr = document.createElement("tr")
+            tr.className = "oneMail"
+
+            let from = document.createElement("td")
+            from.textContent = ele.from
+
+            let sub = document.createElement('td')
+            sub.textContent = ele.subject
+
+            let msg = document.createElement("td")
+            msg.textContent = ele.message
+
+            tr.addEventListener("click", () => {
+                seenTheMail(ele._id)
+                fromMail.textContent = ele.from
+                subMail.textContent = ele.subject
+                msgMail.textContent = ele.message
+                toMail.textContent = ele.to
+
+                openModal();
+            })
+
+            tr.append(from, sub)
+            allSpam.append(tr)
+        });
+    }
+
+    function seenTheMail(id) {
+        fetch(`${baseUrl}/email/seen/${id}`, {
+            // method: 'PATCH',
+            method: "PATCH",
+            headers: {
+                "Content-type": "Application/json",
+                Auth: localStorage.getItem("token"),
+            },
+            body: JSON.stringify({ opened: true }),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((error) => console.log(error));
+    }
+
+    function spamTheMail(id) {
+        fetch(`${baseUrl}/email/spam/${id}`, {
+            // method: 'PATCH',
+            method: "PATCH",
+            headers: {
+                "Content-type": "Application/json",
+                Auth: localStorage.getItem("token"),
+            },
+            body: JSON.stringify({ isSpam: true }),
+        })
+            .then((res) => res.json())
+            .then((result) => {
+                console.log(result);
+            })
+            .catch((error) => console.log(error));
+    }
+
+
+    closeBtn.addEventListener("click", function () {
+        closeModal();
+    });
+
+    modalWrapper.addEventListener("click", function (e) {
+        if (e.target !== this) return;
+        closeModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+            closeModal();
+        }
+    });
+
+    function openModal() {
+        console.log("open");
+        modalWrapper.classList.add("active");
+    }
+    function closeModal() {
+        console.log("close");
+        modalWrapper.classList.remove("active");
+    }
+
+</script>
 
 </html>

@@ -38,9 +38,11 @@
 
                 <a id="signupWithEmailBtn">Sign Up With Your Email</a>
                 <form action="" id="signupWithEmail">
-                    <input type="text" placeholder="Your Email" required>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="number" placeholder="Age">
+                    <input type="email" placeholder="Your Email" required>
                     <input type="password" placeholder="Your Password" required>
-                    <input type="password" placeholder="Confirn Passworf">
+                    <input type="password" placeholder="Confirm Password">
                     <input type="submit">
                 </form>
                 <p>By creating a Mailtrap account, you agree to our <br><a href="">Terms of Service</a> and <a href="">
@@ -59,6 +61,7 @@
         </div>
     </div>
 </body>
+<script src="./src/signup.js"></script>
 <script>
     const signupBtn = document.getElementById("signupWithEmailBtn")
     const signupForm = document.getElementById("signupWithEmail")
