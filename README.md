@@ -53,4 +53,4 @@ MailDefiner is a email testing website. It was created to test your mails.
 
 ## Contact
 
-- ![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) https://www.linkedin.com/in/kumarnitish1021/
+- ![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white) - https://www.linkedin.com/in/kumarnitish1021/
