@@ -14,7 +14,7 @@ MailDefiner is a email testing website. It was created to test your mails.
 - Check the Status of the Mail
 
 ## Deployed Link
-    - https://effortless-chebakia-42270e.netlify.app/
+    https://effortless-chebakia-42270e.netlify.app/
 
 ## Tech Stacks
 - ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
