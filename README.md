@@ -4,7 +4,7 @@ This is the README file for Mail Definer. It provides information about the proj
 
 ## Description
 
-MailDefiner is a email testing website. It was created to test your mails.
+MailDefiner is a versatile email testing platform that allows users to send and track emails efficiently. With features like inbox monitoring and spam testing, it ensures your emails reach their intended recipients with ease while providing insights into their status.
 
 ## Features
 
